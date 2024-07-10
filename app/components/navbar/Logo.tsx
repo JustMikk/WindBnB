@@ -6,7 +6,7 @@ const Logo = () => {
   const router = useRouter();
   return (
     <Image
-      src="/images/logo.png"
+      src="/images/windbnb.png"
       alt="logo"
       width={100}
       height={100}

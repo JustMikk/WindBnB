@@ -9,7 +9,7 @@ const font = Nunito({
   subsets: ["latin"],
 });
 export const metadata: Metadata = {
-  title: "Airbnb",
+  title: "Windbnb",
   description: "This is not a clone of Airbnb!",
 };
 
