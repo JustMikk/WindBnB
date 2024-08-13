@@ -1,7 +1,7 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
@@ -18,8 +18,12 @@ import { useRouter } from "next/navigation";
 const LoginModal = () => {
   const router = useRouter();
   const registerModal = useRegisterModal();
-  const LoginModal = useLoginModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [LoginModal, registerModal]);
   const {
     register,
     handleSubmit,
@@ -40,7 +44,7 @@ const LoginModal = () => {
       if (callback?.ok) {
         toast.success("Logged in successfully");
         router.refresh();
-        LoginModal.onClose();
+        loginModal.onClose();
       }
       if (callback?.error) {
         toast.error(callback.error);
@@ -87,12 +91,12 @@ const LoginModal = () => {
       />
       <div className="text-neutral-500 text-center mt-4 font-light">
         <div className="justify-center flex flex-row items-center gap-2 text-center">
-          <div>Already have an account?</div>
+          <div>First time using Windbnb?</div>
           <div
-            onClick={LoginModal.onClose}
+            onClick={toggle}
             className="text-neutral-800 cursor-pointer hover:underline"
           >
-            Login
+            Create an account
           </div>
         </div>
       </div>
@@ -102,8 +106,8 @@ const LoginModal = () => {
     <Modal
       disabled={isLoading}
       title="Login"
-      isOpen={LoginModal.isOpen}
-      onClose={LoginModal.onClose}
+      isOpen={loginModal.isOpen}
+      onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       actionLabel="Continue"
       body={bodyContent}
