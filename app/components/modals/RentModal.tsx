@@ -49,7 +49,7 @@ export default function RentModal({}: Props) {
       guestCount: 1,
       roomCount: 1,
       bathroomCount: 1,
-      imgSrc: "",
+      imageSrc: "",
       price: 1,
       title: "",
       description: "",
@@ -61,7 +61,7 @@ export default function RentModal({}: Props) {
   const guestCount = watch("guestCount");
   const roomCount = watch("roomCount");
   const bathroomCount = watch("bathroomCount");
-  const imgSrc = watch("imgSrc");
+  const imageSrc = watch("imageSrc");
 
   const Map = useMemo(
     () => dynamic(() => import("../Map"), { ssr: false }),
@@ -195,8 +195,8 @@ export default function RentModal({}: Props) {
           subtitle="Show guests what your property looks like"
         />
         <ImageUpload
-          value={imgSrc}
-          onChange={(value) => setCustomValue("imgSrc", value)}
+          value={imageSrc}
+          onChange={(value) => setCustomValue("imageSrc", value)}
         />
       </div>
     );

@@ -1,6 +1,7 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
+import { parse } from "path";
 
 export async function POST(request: NextRequest) {
   const currentUser = await getCurrentUser();
@@ -24,7 +25,7 @@ export async function POST(request: NextRequest) {
     data: {
       title,
       description,
-      price,
+      price: parseInt(price, 10),
       category,
       roomCount,
       bathroomCount,
