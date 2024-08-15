@@ -13,6 +13,7 @@ import Map from "../Map";
 import dynamic from "next/dynamic";
 import Counter from "../inputs/Counter";
 import ImageUpload from "../inputs/ImageUpload";
+import Input from "../inputs/Input";
 
 type Props = {};
 
@@ -28,6 +29,7 @@ enum STEPS {
 export default function RentModal({}: Props) {
   const rentmodal = useRentModal();
   const [step, setStep] = useState(STEPS.CATEGORY);
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -170,6 +172,53 @@ export default function RentModal({}: Props) {
         <ImageUpload
           value={imgSrc}
           onChange={(value) => setCustomValue("imgSrc", value)}
+        />
+      </div>
+    );
+
+  if (step === STEPS.DESCRIPTION)
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Describe your property"
+          subtitle="Tell guests about your property"
+        />
+        <Input
+          id="title"
+          label="Title"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
+        />
+        <hr />
+        <Input
+          id="description"
+          label="Description"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
+        />
+      </div>
+    );
+
+  if (step === STEPS.PRICE)
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Price your property"
+          subtitle="Tell guests how much you are willing to pay"
+        />
+        <Input
+          id="price"
+          label="Price"
+          formatPrice
+          type="number"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
         />
       </div>
     );
