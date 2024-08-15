@@ -16,6 +16,7 @@
     "bcrypt": "^5.1.1",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
+    "next-cloudinary": "^6.10.0",
     "query-string": "^9.1.0",
     "react": "^18",
     "react-dom": "^18",
