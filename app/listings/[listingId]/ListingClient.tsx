@@ -50,6 +50,7 @@ export default function ListingClient({
         listingId: listing.id,
         startDate: dateRange.startDate,
         endDate: dateRange.endDate,
+        totalPrice,
       })
       .then(() => {
         toast.success("Listing reserved!");
