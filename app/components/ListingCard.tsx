@@ -1,7 +1,7 @@
 "use client";
 import { Listing, Reservation } from "@prisma/client";
 import React, { useCallback, useMemo } from "react";
-import { SafeUser } from "../types";
+import { SafeListing, SafeUser } from "../types";
 import { useRouter } from "next/navigation";
 import useCountries from "../hooks/useCountries";
 import { on } from "events";
@@ -11,7 +11,7 @@ import HeartButton from "./HeartButton";
 import Button from "./Button";
 
 type Props = {
-  data: Listing;
+  data: SafeListing;
   reservation?: Reservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
