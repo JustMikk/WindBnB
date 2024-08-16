@@ -54,7 +54,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             {currentUser ? (
               <>
                 <MenuItem onClick={() => {}} Label={"My trips"} />
-                <MenuItem onClick={() => {}} Label={"My favorites"} />
+                <MenuItem onClick={() => {}} Label={"My favourites"} />
                 <MenuItem onClick={() => {}} Label={"My reservations"} />
                 <MenuItem onClick={() => {}} Label={"My properties"} />
                 <MenuItem
