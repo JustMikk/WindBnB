@@ -1,14 +1,14 @@
 "use client";
 import { Listing, Reservation } from "@prisma/client";
 import React, { useCallback, useMemo } from "react";
-import { SafeListing, SafeUser } from "../types";
+import { SafeListing, SafeUser } from "../../types";
 import { useRouter } from "next/navigation";
-import useCountries from "../hooks/useCountries";
+import useCountries from "../../hooks/useCountries";
 import { on } from "events";
 import { format } from "date-fns";
 import Image from "next/image";
-import HeartButton from "./HeartButton";
-import Button from "./Button";
+import HeartButton from "../HeartButton";
+import Button from "../Button";
 
 type Props = {
   data: SafeListing;
