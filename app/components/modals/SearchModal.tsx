@@ -166,11 +166,12 @@ export default function SearchModal({}: Props) {
   return (
     <Modal
       isOpen={searchModal.isOpen}
+      body={bodyContent}
       actionLabel={actionLabel}
       secondaryAction={step === STEPS.LOCATION ? undefined : onBack}
       secondaryActionLabel={secondaryActionLabel}
       onClose={searchModal.onClose}
-      onSubmit={searchModal.onOpen}
+      onSubmit={onSubmit}
       title="Filters"
     />
   );
