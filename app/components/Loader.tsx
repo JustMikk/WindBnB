@@ -1,5 +1,4 @@
 import React from "react";
-import { Riple } from "react-loading-indicators";
 
 type Props = {};
 

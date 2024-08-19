@@ -41,7 +41,7 @@ export default function SearchModal({}: Props) {
 
   const Map = useMemo(
     () => dynamic(() => import("../Map"), { ssr: false }),
-    [location]
+    []
   );
 
   const onBack = useCallback(() => {
@@ -61,7 +61,7 @@ export default function SearchModal({}: Props) {
     }
     const updatedQuery: any = {
       ...currentQuery,
-      location: location?.value,
+      locationValue: location?.value,
       guestCount,
       roomCount,
       bathroomCount,

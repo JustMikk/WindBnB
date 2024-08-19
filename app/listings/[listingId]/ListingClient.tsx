@@ -63,7 +63,7 @@ export default function ListingClient({
       .finally(() => {
         setIsLoading(false);
       });
-  }, [currentUser, dateRange, listing.id, router]);
+  }, [currentUser, dateRange, listing.id, router, loginModal, totalPrice]);
 
   useEffect(() => {
     if (dateRange.startDate && dateRange.endDate) {

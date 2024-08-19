@@ -6,9 +6,9 @@ type Props = {
   error: Error;
 };
 
-export default function error({ error }: Props) {
+export default function Error({ error }: Props) {
   useEffect(() => {
     console.error(error);
   }, [error]);
-  return <EmptyState title="OOPS" subtitle="Something went wrong!" />;
+  return <EmptyState title="OOPS!" subtitle="Something went wrong!" />;
 }
