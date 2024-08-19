@@ -13,7 +13,7 @@ type Props = {
 export default function EmptyState({
   title = "No exact matches",
   subtitle = "Try changing or removing some preferences",
-  showReset,
+  showReset = false,
 }: Props) {
   const router = useRouter();
   return (
@@ -21,11 +21,13 @@ export default function EmptyState({
       <Heading center title={title} subtitle={subtitle} />
       <div className="w-48 mt-4">
         {" "}
-        <Button
-          outline
-          label="Remove all filters"
-          onClick={() => router.push("/")}
-        />{" "}
+        {showReset && (
+          <Button
+            outline
+            label="Remove all filters"
+            onClick={() => router.push("/")}
+          />
+        )}{" "}
       </div>
     </div>
   );

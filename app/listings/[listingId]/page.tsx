@@ -16,7 +16,7 @@ export default async function page({ params }: { params: IParams }) {
   const currentUser = await getCurrentUser();
   const reservations = await getReservations(params);
   if (!listing) {
-    return <EmptyState />;
+    return <EmptyState showReset />;
   }
   return (
     <ListingClient

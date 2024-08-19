@@ -14,7 +14,6 @@ export default async function page({}: Props) {
       <EmptyState
         title="Unauthorized"
         subtitle="Please log in to view this page"
-        showReset={false}
       />
     );
   }
@@ -26,7 +25,6 @@ export default async function page({}: Props) {
       <EmptyState
         title="No Reservations"
         subtitle="You have no reservations at this time"
-        showReset={false}
       />
     );
   }
