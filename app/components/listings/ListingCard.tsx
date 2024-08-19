@@ -1,7 +1,7 @@
 "use client";
 import { Listing, Reservation } from "@prisma/client";
 import React, { useCallback, useMemo } from "react";
-import { SafeListing, SafeUser } from "../../types";
+import { SafeListing, SafeReservation, SafeUser } from "../../types";
 import { useRouter } from "next/navigation";
 import useCountries from "../../hooks/useCountries";
 import { on } from "events";
@@ -12,7 +12,7 @@ import Button from "../Button";
 
 type Props = {
   data: SafeListing;
-  reservation?: Reservation;
+  reservation?: SafeReservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
   actionLabel?: string;
@@ -77,16 +77,16 @@ export default function ListingCard({
         </div>
         <div className="flex flex-row items-center gap-1">
           <div className="font-semibold">$ {price}</div>
-          {!reservation && <div className="font-light">night</div>}
-          {onAction && actionLabel && (
-            <Button
-              disabled={disabled}
-              small
-              label={actionLabel}
-              onClick={handleCancel}
-            />
-          )}
         </div>
+        {!reservation && <div className="font-light"> / night</div>}
+        {onAction && actionLabel && (
+          <Button
+            disabled={disabled}
+            small
+            label={actionLabel}
+            onClick={handleCancel}
+          />
+        )}
       </div>
     </div>
   );

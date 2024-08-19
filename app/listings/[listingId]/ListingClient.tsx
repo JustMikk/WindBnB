@@ -55,7 +55,7 @@ export default function ListingClient({
       .then(() => {
         toast.success("Listing reserved!");
         setDateRange(initialDateRange);
-        router.refresh();
+        router.push("/trips");
       })
       .catch(() => {
         toast.error("Something went wrong!");
@@ -95,6 +95,7 @@ export default function ListingClient({
   const category = useMemo(() => {
     return categories.find((item) => item.label === listing.category);
   }, [listing.category]);
+
   return (
     <Container>
       <div className="max-w-screen-lg mx-auto">
