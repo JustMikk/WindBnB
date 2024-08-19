@@ -4,9 +4,7 @@ import { getFavouriteListings } from "../actions/getFavouriteListings";
 import getCurrentUser from "../actions/getCurrentUser";
 import FavouritesClient from "./FavouritesClient";
 
-type Props = {};
-
-export default async function page({}: Props) {
+export default async function page() {
   const listings = await getFavouriteListings();
   const currentUser = await getCurrentUser();
   if (listings.length === 0) {
