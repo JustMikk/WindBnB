@@ -47,7 +47,7 @@ const LoginModal = () => {
         loginModal.onClose();
       }
       if (callback?.error) {
-        toast.error(callback.error);
+        toast.error("Invalid credentials");
       }
     });
   };
