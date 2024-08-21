@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import Container from "../Container";
 import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
 import {
@@ -113,12 +113,14 @@ export default function Categories({}: Props) {
     <Container>
       <div className="pt-4 flex flex-row items-center justify-between overflow-x-auto">
         {categories.map((item) => (
-          <CategoryBox
-            key={item.label}
-            label={item.label}
-            icon={item.icon}
-            selected={category === item.label}
-          />
+          <Suspense key={item.label}>
+            <CategoryBox
+              key={item.label}
+              label={item.label}
+              icon={item.icon}
+              selected={category === item.label}
+            />
+          </Suspense>
         ))}
       </div>
     </Container>

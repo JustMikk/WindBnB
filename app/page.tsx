@@ -8,6 +8,7 @@ import getCurrentUser from "./actions/getCurrentUser";
 interface Props {
   searchParams: IListingParams;
 }
+export const dynamic = "force-dynamic";
 
 export default async function Home({ searchParams }: Props) {
   const listings = await getListings(searchParams);
